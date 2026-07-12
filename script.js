@@ -52,3 +52,57 @@ document.getElementById("startBtn").addEventListener("click", () => {
     }, 800);
 
 });
+const envelope=document.getElementById("envelope");
+
+if(envelope){
+
+envelope.onclick=function(){
+
+document.querySelector(".envelopeBox").style.display="none";
+
+document.querySelector(".letterBox").style.display="block";
+
+confetti({
+particleCount:180,
+spread:90
+});
+
+typeLetter();
+
+}
+
+}
+
+const message=`Happy Birthday Sree ❤️
+
+I hope this year brings you happiness, success, beautiful memories and countless smiles.
+
+Thank you for being such a wonderful person.
+
+May every dream you have come true.
+
+Enjoy your special day. 🌸`;
+
+let i=0;
+
+function typeLetter(){
+
+const box=document.getElementById("typewriter");
+
+function typing(){
+
+if(i<message.length){
+
+box.innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(typing,35);
+
+}
+
+}
+
+typing();
+
+}
