@@ -247,3 +247,27 @@ width:100%;
 }
 
 }
+.letterBox{
+display:none;
+}
+
+.envelope{
+font-size:90px;
+cursor:pointer;
+transition:.5s;
+}
+
+.envelope:hover{
+transform:scale(1.1) rotate(-8deg);
+}
+
+#typewriter{
+margin-top:20px;
+line-height:1.8;
+font-size:18px;
+min-height:180px;
+}
+
+#nextBtn{
+margin-top:25px;
+}
