@@ -1,30 +1,54 @@
-function nextPage() {
-    document.querySelector(".hero").style.display = "none";
-    document.getElementById("letter").style.display = "block";
+// Floating Hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
 
-    // 🎉 Confetti effect
-    for (let i = 0; i < 120; i++) {
-        let heart = document.createElement("div");
-        heart.innerHTML = ["💜", "💖", "🌸", "✨"][Math.floor(Math.random() * 4)];
-        heart.style.position = "fixed";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "-20px";
-        heart.style.fontSize = (16 + Math.random() * 18) + "px";
-        heart.style.animation = `fall ${3 + Math.random() * 3}s linear forwards`;
-        document.body.appendChild(heart);
+    heart.innerHTML = "❤️";
 
-        setTimeout(() => heart.remove(), 6000);
-    }
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (15 + Math.random() * 20) + "px";
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
 }
 
-// Create falling animation
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
+setInterval(createHeart, 400);
+
+// Cherry Blossom Petals
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (15 + Math.random() * 15) + "px";
+    petal.style.animationDuration = (6 + Math.random() * 5) + "s";
+
+    document.querySelector(".petals").appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 11000);
 }
-`;
-document.head.appendChild(style);
+
+setInterval(createPetal, 500);
+
+// Start Button
+document.getElementById("startBtn").addEventListener("click", () => {
+
+    const card = document.querySelector(".glass");
+
+    card.style.transition = "0.8s";
+    card.style.transform = "scale(0)";
+    card.style.opacity = "0";
+
+    setTimeout(() => {
+        window.location.href = "letter.html";
+    }, 800);
+
+});
